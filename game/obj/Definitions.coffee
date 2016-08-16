@@ -4,8 +4,8 @@ window.setDefinitions = () ->
   window.game_title = () -> "New Game" #SETS GAME NAME
   window.game_background = () -> '#FFFFFF' #SETS CANVAS BACKGROUND
   window.game_wbackground = () -> '#FFFFF' #SETS BODY BACKGROUND
-  window.game_width = () -> 2000 #SET CANVAS WIDTH
-  window.game_height = () -> 1000 #SETS CANVAS HEIGHT
+  window.game_width = () -> props.windowWidth #SET CANVAS WIDTH
+  window.game_height = () -> props.windowHeight #SETS CANVAS HEIGHT
   window.game_padding = () -> 0 #SET BODY MARGIN
   window.game_font = () -> "Lucida-Sans-Console"
   window.game_scale = [1, 1]
@@ -14,8 +14,6 @@ window.setDefinitions = () ->
 
 #Keep canvas at fullscreen (because game is designed to be put in an iframe)
 window.maintainCanvasFullscreen = () ->
-   scale_x = innerWidth / game_width()
-   scale_y = innerHeight / game_height()
-   scale = Math.min (Math.min scale_x, scale_y), 1
-   window.game_scale = [scale, scale]
+   game_width = ()->props.windowWidth
+   game_height = ()->props.windowHeight
    window.requestAnimationFrame maintainCanvasFullscreen

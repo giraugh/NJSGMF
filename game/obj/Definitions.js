@@ -9,10 +9,10 @@ window.setDefinitions = function() {
     return '#FFFFF';
   };
   window.game_width = function() {
-    return 2000;
+    return props.windowWidth;
   };
   window.game_height = function() {
-    return 1000;
+    return props.windowHeight;
   };
   window.game_padding = function() {
     return 0;
@@ -30,10 +30,12 @@ window.setDefinitions = function() {
 };
 
 window.maintainCanvasFullscreen = function() {
-  var scale, scale_x, scale_y;
-  scale_x = innerWidth / game_width();
-  scale_y = innerHeight / game_height();
-  scale = Math.min(Math.min(scale_x, scale_y), 1);
-  window.game_scale = [scale, scale];
+  var game_height, game_width;
+  game_width = function() {
+    return props.windowWidth;
+  };
+  game_height = function() {
+    return props.windowHeight;
+  };
   return window.requestAnimationFrame(maintainCanvasFullscreen);
 };
