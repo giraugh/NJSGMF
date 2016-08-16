@@ -1,0 +1,5 @@
+.atomignore
+LICENSE
+README.md
+package.json
+Cakefile

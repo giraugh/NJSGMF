@@ -1,0 +1,31 @@
+{
+  "name": "node-jsgmf",
+  "version": "1.0.0",
+  "description": "jsgmf with node integration.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/retroverse/NJSGMF.git"
+  },
+  "dependencies" : {
+     "coffee-script" : "^1.6.3",
+     "electron-prebuilt" : "*"
+  },
+  "keywords": [
+    "node",
+    "game-engine",
+    "game",
+    "engine",
+    "jsgmf",
+    "coffee-script"
+  ],
+  "author": "Ewan Breakey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/retroverse/NJSGMF/issues"
+  },
+  "homepage": "https://github.com/retroverse/NJSGMF#readme"
+}
