@@ -1,2 +1,3 @@
-window.update_player = ()->
-   console.log 'update player'
+window.draw_player = (ctx)->
+   console.log 'draw player'
+   ctx.fillRect 100, 100, 100, 100

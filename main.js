@@ -6,7 +6,10 @@ module.exports = function() {
     win = new BrowserWindow({
       width: props.windowWidth,
       height: props.windowHeight,
-      frame: props.windowFrame
+      frame: props.windowFrame,
+      resizable: props.windowResize,
+      fullscreen: props.windowFullscreen,
+      thickFrame: props.windowFrameThick
     });
     win.loadURL("file://" + __dirname + "/index.html");
     if (props.openDevToolsStart) {

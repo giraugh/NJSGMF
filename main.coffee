@@ -10,6 +10,9 @@ module.exports = ()->
          width: props.windowWidth
          height: props.windowHeight
          frame: props.windowFrame
+         resizable: props.windowResize
+         fullscreen: props.windowFullscreen
+         thickFrame: props.windowFrameThick
 
       #Open html file
       win.loadURL "file://#{__dirname}/index.html"
