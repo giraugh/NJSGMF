@@ -1,6 +1,6 @@
-console.log("Linking Game Objects...");
-
 require('./obj');
+
+require('./scr');
 
 console.log("Starting execution...");
 

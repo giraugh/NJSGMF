@@ -1,5 +1,8 @@
-console.log "Linking Game Objects..."
+# Linking Game Objects...
 require './obj'
+
+# Linking Game Scripts...
+require './scr'
 
 console.log "Starting execution..."
 setDefinitions() #From Definitions.js

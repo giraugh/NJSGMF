@@ -5,10 +5,6 @@ package.json
 node_modules
 run.cmd
 *.js
-!index.js
-!linker.js
+!/index.js
+!/linker.js
 !core
-core/index.js
-game/obj/index.js
-game/index.js
-core/index.js
