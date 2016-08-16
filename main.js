@@ -4,9 +4,9 @@ module.exports = function() {
   win = null;
   createWindow = function() {
     win = new BrowserWindow({
-      width: 800,
-      height: 600,
-      frame: false
+      width: props.windowWidth,
+      height: props.windowHeight,
+      frame: props.windowFrame
     });
     win.loadURL("file://" + __dirname + "/index.html");
     if (props.openDevToolsStart) {

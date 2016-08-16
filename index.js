@@ -1,3 +1,4 @@
 global.fs = require('fs');
-global.props = require('./props');
-(main = require('./main'))();
+global.reqall = require('require-all');
+global.props = require('./Props');
+(main = require('./Main'))();

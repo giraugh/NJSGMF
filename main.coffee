@@ -7,9 +7,9 @@ module.exports = ()->
    createWindow = () ->
       #create window
       win = new BrowserWindow
-         width: 800
-         height: 600
-         frame: false
+         width: props.windowWidth
+         height: props.windowHeight
+         frame: props.windowFrame
 
       #Open html file
       win.loadURL "file://#{__dirname}/index.html"

@@ -17,21 +17,20 @@ but only locally as it doesnt work with loading delays
 
 */
 
-class SpriteController {
-  constructor () {
-    this.Sprites = undefined;
-    this.initialized = false;
+window.SpriteController = function() {
+   ret = {};
+    ret.Sprites = undefined;
+    ret.initialized = false;
 
     //Called in Main.js (Initialises Sprite Controller)
-    this.init = function(x) {
+    ret.init = function(x) {
       this.initialized = true;
       this.Sprites = x;
       this.len = Object.keys(this.Sprites).length;
       window.setTimeout(function() {SL.fixN()},6);
       window.setTimeout(function() {SL.fixN()},300);
-    }
 
-    this.fixN = function() {
+    ret.fixN = function() {
       //set up natural
       for (var s in this.Sprites) {
           let spr = this.Sprites[s];
@@ -53,7 +52,7 @@ class SpriteController {
    }
 
     //Returns Sprite used like SL.Sprite(<SpriteName>)
-    this.Sprite = function(x) {
+    ret.Sprite = function(x) {
       let obj = this.Sprites[x];
 
       //Add Sprite Functions
@@ -109,13 +108,13 @@ class SpriteController {
     }
 
     //This is a shortcut, used like SL.drawSprite("spriteName",xPos,yPos,2dCanvasContext)
-    this.drawSprite = function(sprite,x,y,ctx) {
+    ret.drawSprite = function(sprite,x,y,ctx) {
       let spr = this.Sprite(sprite);
       spr.draw(x,y,ctx);
     }
 
     //This is a shortcut, used like SL.get(<SpriteName>)
-    this.get = function(x) {
+    ret.get = function(x) {
       let spr = this.Sprites[x];
       let a = new Image();
       a.src = spr.src;
@@ -123,7 +122,7 @@ class SpriteController {
    }
 
     //Used to add sprite after initialization
-    this.addSprite = function(name,src,width,height) {
+    ret.addSprite = function(name,src,width,height) {
       this.Sprites[name] = {};
       this.Sprites[name].src = src;
       this.Sprites[name].width = width;
@@ -131,4 +130,5 @@ class SpriteController {
       return this.Sprites[name];
     }
   }
+  return ret;
 }

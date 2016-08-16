@@ -26,9 +26,9 @@ IIIIIIIIIImmmmmm   mmmmmm   mmmmmm p::::::pppppppp        eeeeeeeeeeeeee   rrrrr
                                                          - Gamepad Libary as part of JSGMF  -
                                                                Ewan Breakey - ewanb.me
 */
-
-class Imperium {
-   init() {
+function Imperium(){
+   var r = {}
+   r.init = function() {
       this.codes = {
          "A":       0,
          "B":       1,
@@ -49,7 +49,7 @@ class Imperium {
       }
    }
 
-   translateButton(x) {
+   r.translateButton = function(x) {
       x = x || 0; //Default to A
       if (x+"" === x) x = x.toUpperCase(); //Make strings uppercase
 
@@ -107,7 +107,7 @@ class Imperium {
       return x;
    }
 
-   translateAxis(x) {
+   r.translateAxis = function(x) {
       x = x || 0; //Default to A
       if (x+"" === x) x = x.toUpperCase(); //Make strings uppercase
 
@@ -124,7 +124,7 @@ class Imperium {
       return x;
    }
 
-   getGamepadCount() {
+   r.getGamepadCount = function() {
       let list = navigator.getGamepads();
       let count = 0;
       for (let i = list.length;i--;)
@@ -132,7 +132,7 @@ class Imperium {
       return count;
    }
 
-   getButton(x,gp) {
+   r.getButton = function(x,gp) {
       x = this.translateButton(x); //we translate input strings to integers (for accessing array)
       gp = +gp || 0; //Gamepad ID, defaults to 0 if not specified
       let pad = navigator.getGamepads()[gp];
@@ -140,19 +140,19 @@ class Imperium {
       return pad.buttons[x];
    }
 
-   getButtonPressed(x,gp) {
+   r.getButtonPressed = function(x,gp) {
       let res = this.getButton(x,gp);
       if (!res) return null;
       return res.pressed;
    }
 
-   getButtonValue(x,gp) {
+   r.getButtonValue = function(x,gp) {
       let res = this.getButton(x,gp);
       if (!res) return null;
       return res.value;
    }
 
-   getAxis(x,gp) {
+   r.getAxis = function(x,gp) {
       x = this.translateAxis(x);
       gp = +gp || 0;
       let pad = navigator.getGamepads()[gp];
@@ -160,19 +160,19 @@ class Imperium {
       return [pad.axes[gp*2],pad.axes[(gp*2)+1]];
    }
 
-   getAxisX(x,gp) {
+   r.getAxisX = function(x,gp) {
       let res = this.getAxis(x,gp);
       if (!res) return null;
       return res[0];
    }
 
-   getAxisY(x,gp) {
+   r.getAxisY = function(x,gp) {
       return this.getAxis(x,gp);
       if (!res) return null;
       return res[1];
    }
 
-   getAxisPolar(axis,gp) {
+   r.getAxisPolar = function(axis,gp) {
       let res = this.getAxis(axis,gp);
       if (!res) return null;
 

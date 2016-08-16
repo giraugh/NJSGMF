@@ -34,11 +34,10 @@
       });
       a.fadeIn(100);
  */
-var gui, guiShapes, guiWorld, gui_draw, gui_update;
 
-guiWorld = [];
+window.guiWorld = [];
 
-guiShapes = {
+window.guiShapes = {
   rect: "Rectangle",
   rectangle: "Rectangle",
   round_rect: "Rounded Rectangle",
@@ -47,7 +46,7 @@ guiShapes = {
   roundedRectangle: "Rounded Rectangle"
 };
 
-gui = function() {
+window.gui = function() {
   var ret;
   ret = {
     _label: "gui element",
@@ -272,7 +271,7 @@ gui = function() {
       return this;
     },
     toShape: function() {
-      return new Shape(this._position.x(), this._position.y(), this._scale.x(), this._scale.y());
+      return Shape(this._position.x(), this._position.y(), this._scale.x(), this._scale.y());
     },
     update: function() {
       var i, isHovering, mouse, op, ref, shape, updateOperations;
@@ -281,10 +280,10 @@ gui = function() {
         x: Input.getMouse("x"),
         y: Input.getMouse("y"),
         shape: function() {
-          return new Shape(this.x, this.y, 1, 1);
+          return Shape(this.x, this.y, 1, 1);
         }
       };
-      shape = new Shape(this._position.x(), this._position.y(), this._scale.x(), this._scale.y());
+      shape = Shape(this._position.x(), this._position.y(), this._scale.x(), this._scale.y());
       isHovering = shape.overlaps(mouse.shape());
       if (!this._mouseState.isHovering && isHovering) {
         this.doMouseEnter();
@@ -365,7 +364,7 @@ gui = function() {
   return ret;
 };
 
-gui_update = function() {
+window.gui_update = function() {
   var element, i, len, results;
   results = [];
   for (i = 0, len = guiWorld.length; i < len; i++) {
@@ -375,7 +374,7 @@ gui_update = function() {
   return results;
 };
 
-gui_draw = function(ctx) {
+window.gui_draw = function(ctx) {
   var element, i, len, results;
   results = [];
   for (i = 0, len = guiWorld.length; i < len; i++) {

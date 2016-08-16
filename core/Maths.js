@@ -1,18 +1,18 @@
-//Maths Definitions and classes (like vectors and trig functions)
+//Maths Definitions and classes (like vectors and trig window.s)
 
 //Generic
-function sign(x) {
+window.sign = function(x) {
   return x == 0 ? 0 : x < 0 ? -1 : 1;
 }
 
-function lerp(a,b,t) {
+window.lerp = function(a,b,t) {
   return a+((b-a)*t);
 }
 
-/*Uses Function instead of class to allow for chaining, i.e:
-Vector(1,1).add(Vector(3,2)).subtract(Vector(3,3)).toString() //is "[1,0]"
+/*Uses window.instead of class to allow for chaining, i.e:
+Vector = function(1,1).add(Vector(3,2)).subtract(Vector(3,3)).toString() //is "[1,0]"
 */
-function Vector(arr) {
+window.Vector = function(arr) {
   var v = {};
   v.v = [];
   arr = Array.prototype.slice.call(arguments);
@@ -71,7 +71,7 @@ function Vector(arr) {
   return v;
 }
 
-function List() {
+window.List = function() {
    let ret = {};
    ret.arr = Array.prototype.slice.call(arguments)||[];
    ret.get = function(x){return this.arr[x];}
@@ -83,55 +83,55 @@ function List() {
    return ret;
 }
 
-class Shape {
-  constructor (x,y,width,height) {
-    this.position = Vector(x,y);
-    this.scale = Vector(width,height);
-  }
+window.Shape = function(x, y, width, height) {
+  ret = {}
+  ret.position = Vector(x, y);
+  ret.scale = Vector(width, height);
 
-  x(x) {return this.position.x(x);}
-  y(y) {return this.position.y(y);}
-  width(x) {return this.scale.x(x);}
-  height(y) {return this.scale.y(y);}
-  addX(x){this.position.addX(x);}
-  addY(y){this.position.addY(y);}
-  addWidth(x){this.scale.addX(x);}
-  addHeight(y){this.scale.addY(y);}
-  right(){return this.position.x()+this.scale.x();}
-  bottom(){return this.position.y()+this.scale.y();}
-  left(){return this.position.x()}
-  top(){return this.position.y()}
-  add(x){
+  ret.x = function(x) {return this.position.x(x);}
+  ret.y = function(y) {return this.position.y(y);}
+  ret.width = function(x) {return this.scale.x(x);}
+  ret.height = function(y) {return this.scale.y(y);}
+  ret.addX = function(x){this.position.addX(x);}
+  ret.addY = function(y){this.position.addY(y);}
+  ret.addWidth = function(x){this.scale.addX(x);}
+  ret.addHeight = function(y){this.scale.addY(y);}
+  ret.right = function(){return this.position.x()+this.scale.x();}
+  ret.bottom = function(){return this.position.y()+this.scale.y();}
+  ret.left = function(){return this.position.x()}
+  ret.top = function(){return this.position.y()}
+  ret.add = function(x){
      this.addX(x.x());
      this.addY(x.y());
      this.addWidth(x.width());
      this.addHeight(x.height());
   }
-  take(x){
+  ret.take = function(x){
     this.addX(-x.x());
     this.addY(-x.y());
     this.addWidth(-x.width());
     this.addHeight(-x.height());
   }
-  overlaps(shape) {
+  ret.overlaps = function(shape) {
     var x1l = this.x();var x1r = x1l+this.width();
     var y1t = this.y();var y1b = y1t+this.height();
     var x2l = shape.x();var x2r = x2l+shape.width();
     var y2t = shape.y();var y2b = y2t+shape.height();
     return !(x1l >= x2r || x1r <= x2l || y1b <= y2t || y1t >= y2b);
   }
-  toString() {
+  ret.toString = function() {
      return ""+this.x()+","+this.y()+" : "+this.width()+"x"+this.height();
   }
-  draw(ctx,style) {
+  ret.draw = function(ctx,style) {
      ctx.fillStyle = style || ctx.fillStyle
      ctx.fillRect(this.x(),this.y(),this.width(),this.height())
  }
+ return ret;
 }
 
 //Arrays
 Array.prototype.toShape = function() {
-   return new Shape(this[0],this[1],this[2],this[3]);
+   return Shape(this[0],this[1],this[2],this[3]);
 }
 
 Array.prototype.random = function() {
@@ -184,7 +184,7 @@ Array.prototype.shuffle = function() {
    }
 }
 
-function shuffle(array) {
+window.shuffle = function(array) {
   var m = array.length, t, i;
 
   // While there remain elements to shuffle…

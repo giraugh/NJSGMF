@@ -1,4 +1,4 @@
-function colourToHex(colour) {
+window.colourToHex = function(colour) {
    if (typeof colours[colour.toLowerCase()] != 'undefined')
         return colours[colour.toLowerCase()];
    else
