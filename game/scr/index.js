@@ -10,22 +10,22 @@ if (props.autoGenEvents) {
   window.drawFunctions = [];
   window.initFunctions = [];
   for (key in window) {
-    if (typeof window[key] === "function") {
-      if (key.toLowerCase().replace('update_', "") !== key.toLowerCase()) {
+    if (key.toLowerCase().replace('update_', "") !== key.toLowerCase()) {
+      if (typeof window[key] === "function") {
         updateFunctions.push(window[key]);
       }
     }
   }
   for (key in window) {
-    if (typeof window[key] === "function") {
-      if (key.toLowerCase().replace('draw_', "") !== key.toLowerCase()) {
+    if (key.toLowerCase().replace('draw_', "") !== key.toLowerCase()) {
+      if (typeof window[key] === "function") {
         drawFunctions.push(window[key]);
       }
     }
   }
   for (key in window) {
-    if (typeof window[key] === "function") {
-      if (key.toLowerCase().replace('init_', "") !== key.toLowerCase()) {
+    if (key.toLowerCase().replace('init_', "") !== key.toLowerCase()) {
+      if (typeof window[key] === "function") {
         initFunctions.push(window[key]);
       }
     }

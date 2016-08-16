@@ -7,22 +7,23 @@ if props.autoGenEvents
    window.drawFunctions = []
    window.initFunctions = []
 
+
    # Add update functions
    for key of window
-      if typeof window[key] is "function"
-         if key.toLowerCase().replace('update_', "") isnt key.toLowerCase()
-            updateFunctions.push window[key]
+      if key.toLowerCase().replace('update_', "") isnt key.toLowerCase()
+         if typeof window[key] is "function"
+               updateFunctions.push window[key]
 
    # Add draw functions
    for key of window
-      if typeof window[key] is "function"
-         if key.toLowerCase().replace('draw_', "") isnt key.toLowerCase()
+      if key.toLowerCase().replace('draw_', "") isnt key.toLowerCase()
+         if typeof window[key] is "function"
             drawFunctions.push window[key]
 
    # Add init functions
    for key of window
-      if typeof window[key] is "function"
-         if key.toLowerCase().replace('init_', "") isnt key.toLowerCase()
+      if key.toLowerCase().replace('init_', "") isnt key.toLowerCase()
+         if typeof window[key] is "function"
             initFunctions.push window[key]
 
    window.game_update = ()->

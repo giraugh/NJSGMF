@@ -3,7 +3,7 @@ LICENSE
 README.md
 package.json
 node_modules
-run.cmd
+*.cmd
 *.js
 !/index.js
 !/linker.js
