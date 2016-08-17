@@ -1,6 +1,6 @@
 window.setDefinitions = function() {
   window.game_title = function() {
-    return "New Game";
+    return "Lime";
   };
   window.game_background = function() {
     return '#FFFFFF';

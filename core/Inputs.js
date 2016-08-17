@@ -23,7 +23,8 @@ window.InputCodes = {
    "home": 36,
    "end": 35,
    "comma": 188,
-   "period": 190
+   "period": 190,
+   "escape": 27
 }
 
 window.Input = {}
@@ -46,6 +47,8 @@ Input.translate = function(input) {
       input = InputCodes.tab;
    if (input == "enter" || input == "return")
       input = InputCodes.enter;
+   if (input == "esc" || input == "escape")
+      input = InputCodes.escape;
    if (input == "backspace")
       input = InputCodes.backspace;
    if (input == "tab")

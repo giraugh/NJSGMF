@@ -364,7 +364,7 @@ window.gui = function() {
   return ret;
 };
 
-window.gui_update = function() {
+window.update_gui = function() {
   var element, i, len, results;
   results = [];
   for (i = 0, len = guiWorld.length; i < len; i++) {
@@ -374,7 +374,7 @@ window.gui_update = function() {
   return results;
 };
 
-window.gui_draw = function(ctx) {
+window.draw_gui = function(ctx) {
   var element, i, len, results;
   results = [];
   for (i = 0, len = guiWorld.length; i < len; i++) {

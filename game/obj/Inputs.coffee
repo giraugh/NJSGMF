@@ -10,6 +10,8 @@ Below are some example inputs...
 JSGMF.suppress "context"
 
 window.inputs =
+   "quit":
+      ["escape"]
    "up":
       ["w","up"]
    "right":

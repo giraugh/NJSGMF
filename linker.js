@@ -2,6 +2,7 @@
 console.log('Linking Node Modules...')
 window.reqall = require('require-all');
 window.props = require('./props');
-console.log('Linking...');
+window.remote = require('electron').remote;
+console.log('Linking Game Elements...');
 require('./core');
 require('./game');

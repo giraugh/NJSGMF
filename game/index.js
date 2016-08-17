@@ -1,5 +1,7 @@
 require('./obj');
 
+require('./lib');
+
 require('./scr');
 
 console.log("Starting execution...");

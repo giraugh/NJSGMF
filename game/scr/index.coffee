@@ -2,7 +2,7 @@ console.log 'Linking Script Definitions...'
 reqall __dirname+"\\"
 
 if props.autoGenEvents
-   console.log 'Dynamically Creating Game Event Functions'
+   console.log 'Dynamically Creating Game Event Functions...'
    window.updateFunctions = []
    window.drawFunctions = []
    window.initFunctions = []

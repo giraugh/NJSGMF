@@ -1,6 +1,9 @@
 # Linking Game Objects...
 require './obj'
 
+# Linking Game Libaries...
+require './lib'
+
 # Linking Game Scripts...
 require './scr'
 
