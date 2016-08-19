@@ -1,10 +1,8 @@
 .*ignore
 LICENSE
 README.md
-package.json
 node_modules
 *.cmd
 *.js
 !/index.js
-!/linker.js
 !core

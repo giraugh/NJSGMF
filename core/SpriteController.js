@@ -53,7 +53,8 @@ window.SpriteController = function() {
 
     //Returns Sprite used like SL.Sprite(<SpriteName>)
     ret.Sprite = function(x) {
-      let obj = this.Sprites[x];
+      let obj = this.Sprites[x]
+      if (obj === undefined) {return undefined}
 
       //Add Sprite Functions
       obj.get = function() {
@@ -76,8 +77,8 @@ window.SpriteController = function() {
 
       obj.getDrawArgs = function(x,y) {
          let args = {
-            'sx': this.frameOffset[0],
-            'sy': this.frameOffset[1],
+            'sx': this.frameOffset[0]*this.frameSize[0],
+            'sy': this.frameOffset[1]*this.frameSize[1],
             'sWidth': this.frameSize[0],
             'sHeight': this.frameSize[1],
             'scale': this.scale,
