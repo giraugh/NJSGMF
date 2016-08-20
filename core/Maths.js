@@ -13,62 +13,62 @@ window.lerp = function(a,b,t) {
 Vector = function(1,1).add(Vector(3,2)).subtract(Vector(3,3)).toString() //is "[1,0]"
 */
 window.Vector = function(arr) {
-  var v = {};
-  v.v = [];
+  var ve = {};
+  ve.v = [];
   arr = Array.prototype.slice.call(arguments);
   for (i in arr) {
-    v.v[i] = arr[i];
+    ve.v[i] = arr[i];
   }
 
-  v.add = function(v2) {
-    for (var i in v2.v) {
-      this.v[i] += +v2.v[i];
+  ve.add = function(v2) {
+    for (var i=0;i<v2.v.length;i++) {
+      this.v[i] += +v2.v[i] || 0;
     }
     return this;
   }
 
-  v.subtract = function(v2) {
-    for (var i in v2.v) {
+  ve.subtract = function(v2) {
+    for (var i=0;i<v2.v.length;i++) {
       this.v[i] -= +v2.v[i];
     }
     return this;
   }
 
-  v.toString = function() {
+  ve.toString = function() {
     return "["+this.v.toString()+"]";
   }
 
-  v.x = function(x) {
+  ve.x = function(x) {
     this.v[0] = x || this.v[0];
     return this.v[0];
   }
 
-  v.y = function(y) {
+  ve.y = function(y) {
     this.v[1] = y || this.v[1];
     return this.v[1];
   }
 
-  v.z = function(z) {
+  ve.z = function(z) {
     this.v[2] = z || this.v[2];
     return this.v[2];
   }
 
-  v.addX = function(x) {
+  ve.addX = function(x) {
      this.v[0] += x;
      return this.v[0];
   }
 
-  v.addY = function(y) {
+  ve.addY = function(y) {
      this.v[1] += y;
      return this.v[1];
   }
 
-  v.lerp = function(b, t) {
-     this.v.lerp(b.v, t)
+  ve.lerp = function(b, t) {
+     this.v = this.v.lerp(b.v, t)
      return this
  }
 
-  return v;
+  return ve;
 }
 
 window.List = function() {
@@ -150,9 +150,9 @@ Array.prototype.insert = function(x) {
    this.reverse();
 }
 
-Array.prototype.lerp = function(b,t) {
-   for (let i = 0;i<this.length;i++) {
-      this[i] = lerp(this[i], b[i], t);
+Array.prototype.lerp = function(z, x) {
+   for (let q = 0;q<this.length;q++) {
+      this[q] = lerp(this[q], z[q], x);
    }
    return this;
 }
